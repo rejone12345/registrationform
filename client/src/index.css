@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ── Custom design tokens ──────────────────────────────────── */
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: #818cf8;
+  --color-surface: #0f172a;
+  --color-surface-card: #1e293b;
+  --color-surface-input: #334155;
+  --color-border: #475569;
+  --color-border-focus: #6366f1;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-success: #22c55e;
+  --color-success-bg: rgba(34, 197, 94, 0.1);
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.1);
+}
+
+/* ── Base styles ───────────────────────────────────────────── */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--color-surface) 0%, #1a1a2e 50%, #16213e 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* ── Glassmorphism card ────────────────────────────────────── */
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.06),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Input focus glow ──────────────────────────────────────── */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+/* ── Spinner keyframe ──────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Slide-in animation ────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* ── Fade-in animation ─────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ── Pulse glow on success ─────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(34, 197, 94, 0.2); }
+  50%      { box-shadow: 0 0 25px rgba(34, 197, 94, 0.4); }
+}
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
